@@ -1,10 +1,10 @@
 "use client";
 
 import { Course } from "@/types";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import CourseCard from "./CourseCard";
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,

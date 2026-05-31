@@ -1,11 +1,11 @@
 "use client";
 
 import { Course } from "@/types";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import * as Icons from "lucide-react";
 import { useEffect, useState } from "react";
 
-const cardVariants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: {
     opacity: 1,
@@ -18,8 +18,7 @@ export default function CourseCard({ course }: { course: Course }) {
   const [progress, setProgress] = useState(0);
 
   // Dynamically load the icon from Lucide React based on the database string
-  const IconComponent = (Icons as any)[course.icon_name] || Icons.Book;
-
+  const IconComponent = (Icons[course.icon_name as keyof typeof Icons] || Icons.Book) as React.ElementType;
   useEffect(() => {
     // Delay progress bar animation slightly for a dramatic reveal
     const timer = setTimeout(() => {
